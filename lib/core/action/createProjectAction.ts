@@ -29,7 +29,8 @@ export const createProjectAction = async (projectName: string) => {
       name: "isCover",
       message: `${projectName} 目录已存在, 是否覆盖？`,
     });
-    if (res.isCover) await commandExec(`rm -rf ${projectName}`, {});
+    const rmDir = process.platform === 'win32' ? 'rd /s /q' : 'rm -rf';
+    if (res.isCover) await commandExec(`${rmDir} ${projectName}`, {});
     else return;
   }
 
