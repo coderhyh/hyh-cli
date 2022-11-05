@@ -1,6 +1,6 @@
 {
-  "name": "hyh",
-  "version": "1.0.0",
+  "name": "hyh-cli",
+  "version": "1.0.1",
   "description": "a cli",
   "main": "index.ts",
   "bin": {

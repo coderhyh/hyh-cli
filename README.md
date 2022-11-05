@@ -1,6 +1,6 @@
 ```
 下载
-npm i hyh -g
+npm i hyh-cli -g
 
 创建项目
 hyh create projectName
