@@ -4,6 +4,7 @@ import path from 'path';
 import { renderFile } from "ejs";
 
 type Fn = (...args: any) => any;
+const s = process.platform === 'win32' ? '\\' : '/'
 
 export function promisify<T extends Function>(fn: T): Fn {
   return (...args: any): Promise<any> => {
@@ -19,7 +20,7 @@ export function promisify<T extends Function>(fn: T): Fn {
 
 export const createDirSync = (targetPath: string) => {
   if (!fs.existsSync(targetPath)) {
-    createDirSync(targetPath.split('/').slice(0, -1).join('/'))
+    createDirSync(targetPath.split(s).slice(0, -1).join(s))
     fs.mkdirSync(targetPath)
   }
 }
@@ -34,9 +35,9 @@ export const cloneCpnSync = async (clonePath: string, targetPath: string, cpnNam
       const _fileName = fileName.includes('ts') 
         ? fileName.replace('.ejs', '') 
         : `${cpnName}.${fileName.split('.')[1]}`;
-      write2File(`${targetPath}/${_fileName}`, res)
+      write2File(`${targetPath}${s}${_fileName}`, res)
     }else if(file.isDirectory()){
-      const _targetPath = `${targetPath}/${fileName}`
+      const _targetPath = `${targetPath}${s}${fileName}`
       createDirSync(_targetPath)
       cloneCpnSync(templatePath, _targetPath, cpnName)
     }
