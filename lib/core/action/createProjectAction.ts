@@ -1,9 +1,10 @@
-const { origin } = require("../../config/repo-config.json");
-import { promisify, fnLoadingByOra } from "../../common/utils";
+import { origin } from "../../config/repo-config.json";
+import { fnLoadingByOra } from "../../common/utils";
 import { commandExec } from "../../common/terminal";
 
 import inquirer from "inquirer";
 import fs from "fs";
+import {promisify} from 'util';
 const download = promisify(require("download-git-repo"));
 
 interface ResType {
@@ -36,7 +37,8 @@ export const createProjectAction = async (projectName: string) => {
 
   await fnLoadingByOra(
     () => download(origin[res.frame], projectName, { clone: true }),
-    "正在拉取项目..."
+    "正在拉取项目...",
+    "下载成功～"
   );
 
   const packagePath = `${projectName}/package.json`;

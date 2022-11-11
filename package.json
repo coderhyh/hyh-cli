@@ -1,19 +1,21 @@
 {
   "name": "hyh-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a cli",
-  "main": "index.ts",
+  "main": "./bin/index.js",
   "bin": {
     "hyh": "./bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build-tsc && npm run build-extra",
-    "build-tsc": "tsc --incremental",
-    "build-extra": "cpx \"lib/**/*.{json,}\" bin/",
+    "dev": "ts-node .dev.ts",
+    "build": "npm run build-tsc && npm run build-extra && ts-node .prod.ts",
+    "build-tsc": "tsc",
+    "build-extra": "cpx \"lib/**/*.{json,ejs}\" bin/",
     "build-webpack": "webpack --mode production",
-    "watch-tsc": "tsc --watch --incremental",
-    "watch-extra": "cpx \"src/**/*.{scss,html,ico}\" build/src/ --watch",
+    "watch-build": "npm run watch-tsc && npm run watch-extra",
+    "watch-tsc": "tsc --watch",
+    "watch-extra": "cpx \"lib/**/*.{json,ejs}\" bin/ --watch",
     "watch-webpack": "webpack -w --mode development --stats minimal"
   },
   "homepage": "https://github.com/LoveCodingHyh/hyh",
@@ -30,22 +32,24 @@
     "coderhyh",
     "CLI"
   ],
-  "files": ["bin"],
+  "files": [
+    "bin"
+  ],
   "license": "MIT",
   "dependencies": {
-    "@types/commander": "^2.12.2",
-    "@types/inquirer": "^8.0.0",
-    "@types/node": "^18.11.9",
-    "@types/ora": "^3.2.0",
     "commander": "^9.4.1",
     "download-git-repo": "^3.0.2",
+    "ejs": "^3.1.8",
     "inquirer": "^8.0.0",
-    "ora": "^5.0.0",
-    "ts-loader": "^9.4.1",
-    "typescript": "^4.8.4"
+    "ora": "^5.0.0"
   },
   "devDependencies": {
+    "@types/ejs": "^3.1.1",
+    "@types/inquirer": "^8.0.0",
+    "@types/node": "^18.11.9",
     "cpx2": "^4.2.0",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
   }
