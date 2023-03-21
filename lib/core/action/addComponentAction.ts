@@ -1,6 +1,4 @@
-import fs from "fs";
 import path from "path";
-import { renderFile } from "ejs";
 
 import { createDirSync, cloneCpnSync } from "../../common/utils";
 

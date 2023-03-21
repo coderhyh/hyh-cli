@@ -1,4 +1,4 @@
-const ora = require('ora');
+import ora from 'ora'
 import fs from 'fs';
 import path from 'path';
 import { renderFile } from "ejs";

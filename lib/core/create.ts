@@ -1,7 +1,5 @@
 import { program } from "commander";
 
-import { fnLoadingByOra } from "../common/utils";
-
 import {
   createProjectAction,
   getConfigAction,
