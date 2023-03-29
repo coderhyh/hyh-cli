@@ -1,15 +1,15 @@
-import { origin } from "../../config/repo-config.json";
-import { fnLoadingByOra } from "../../common/utils";
-import { commandExec } from "../../common/terminal";
-
 import inquirer from "inquirer";
 import fs from "fs";
-import {promisify} from 'util';
-const download = promisify(require("download-git-repo"));
 
-interface ResType {
-  frame: "vue" | "react";
+import { createVueProjectAction } from "./createVueProjectAction";
+
+import type { ResType } from "../type";
+
+const mapCreateProjectAction: {[k in ResType['frame']]: typeof createVueProjectAction} = {
+  vue: createVueProjectAction,
+  react: () => Promise.resolve((console.log("react暂无."), false))
 }
+
 const { prompt } = inquirer;
 export const createProjectAction = async (projectName: string) => {
   const res: ResType = await prompt({
@@ -19,27 +19,9 @@ export const createProjectAction = async (projectName: string) => {
     default: "vue",
     choices: ["vue", "react"],
   });
-  if (res.frame === "react") {
-    console.log("react暂无");
-    return;
-  }
 
-  if (fs.existsSync(projectName)) {
-    const res = await prompt({
-      type: "confirm",
-      name: "isCover",
-      message: `${projectName} 目录已存在, 是否覆盖？`,
-    });
-    const rmDir = process.platform === 'win32' ? 'rd /s /q' : 'rm -rf';
-    if (res.isCover) await commandExec(`${rmDir} ${projectName}`, {});
-    else return;
-  }
-
-  await fnLoadingByOra(
-    () => download(origin[res.frame], projectName, { clone: true }),
-    "正在拉取项目...",
-    "下载成功～"
-  );
+  const flag = await mapCreateProjectAction[res.frame](res, projectName)
+  if (!flag) return
 
   const packagePath = `${projectName}/package.json`;
   if (fs.existsSync(packagePath)) {

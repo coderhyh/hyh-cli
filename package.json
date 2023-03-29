@@ -2,9 +2,9 @@
   "name": "hyh-cli",
   "version": "1.0.8",
   "description": "a cli",
-  "main": "./bin/index.js",
+  "main": "./lib/index.ts",
   "bin": {
-    "hyh": "./bin/index.js"
+    "hyh": "./lib/index.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
