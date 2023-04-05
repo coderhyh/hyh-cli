@@ -31,10 +31,12 @@ export const cloneCpnSync = async (clonePath: string, targetPath: string, cpnNam
     const templatePath = path.resolve(clonePath, fileName)
     let file = fs.statSync(templatePath);
     if(file.isFile()){
-      const res = await renderFile(templatePath, { cpnName: toHump(cpnName) });
-      const _fileName = fileName.includes('ts') 
-        ? fileName.replace('.ejs', '') 
-        : `${cpnName}.${fileName.split('.')[1]}`;
+      const toHumpName = toHump(cpnName)
+      const res = await renderFile(templatePath, { cpnName, toHumpName });
+      const reg = /^\[[A-z0-9]*\]/
+      const _fileName = reg.test(fileName)
+        ? `${cpnName}.${fileName.split('.')[1]}`
+        : fileName.replace('.ejs', '');
       write2File(`${targetPath}${s}${_fileName}`, res)
     }else if(file.isDirectory()){
       const _targetPath = `${targetPath}${s}${fileName}`

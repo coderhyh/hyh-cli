@@ -1,41 +1,22 @@
 {
   "name": "hyh-cli",
-  "version": "1.0.8",
+  "version": "1.0.0",
   "description": "a cli",
   "main": "./lib/index.ts",
   "bin": {
     "hyh": "./lib/index.ts"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node .dev.ts",
     "build": "npm run build-tsc && npm run build-extra && ts-node .prod.ts",
     "build-tsc": "tsc",
-    "build-extra": "cpx \"lib/**/*.{json,ejs}\" bin/",
-    "build-webpack": "webpack --mode production",
+    "build-extra": "cpx \"lib/**/*.ejs\" cli/bin/ && cpx \"lib/*.{json,js,md}\" cli/",
     "watch-build": "npm run watch-tsc && npm run watch-extra",
     "watch-tsc": "tsc --watch",
-    "watch-extra": "cpx \"lib/**/*.{json,ejs}\" bin/ --watch",
-    "watch-webpack": "webpack -w --mode development --stats minimal"
+    "watch-extra": "cpx \"lib/**/*.{json,ejs}\" cli/bin/ --watch",
+    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\"",
+    "publish": "npm login && npm publish ./cli"
   },
-  "homepage": "https://github.com/LoveCodingHyh/hyh",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LoveCodingHyh/hyh"
-  },
-  "author": {
-    "name": "coderhyh",
-    "email": "772567615@qq.com",
-    "url": "https://coderhyh.top"
-  },
-  "keywords": [
-    "coderhyh",
-    "CLI"
-  ],
-  "files": [
-    "bin"
-  ],
-  "license": "MIT",
   "dependencies": {
     "commander": "^9.4.1",
     "download-git-repo": "^3.0.2",
@@ -50,9 +31,7 @@
     "@types/ora": "^3.2.0",
     "cpx2": "^4.2.0",
     "ts-loader": "^9.4.1",
-    "typescript": "^4.8.4",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "typescript": "^4.8.4"
   },
   "engines": {
     "node": ">=16.17.1"
