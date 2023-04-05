@@ -10,7 +10,7 @@
     "dev": "ts-node .dev.ts",
     "build": "npm run build-tsc && npm run build-extra && ts-node .prod.ts",
     "build-tsc": "tsc",
-    "build-extra": "cpx \"lib/**/*.ejs\" cli/bin/ && cpx \"lib/*.{json,js,md}\" cli/",
+    "build-extra": "cpx \"lib/**/*.ejs\" cli/bin/ && cpx \"lib/copyFiles/*\" cli/",
     "watch-build": "npm run watch-tsc && npm run watch-extra",
     "watch-tsc": "tsc --watch",
     "watch-extra": "cpx \"lib/**/*.{json,ejs}\" cli/bin/ --watch",
