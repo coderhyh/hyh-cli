@@ -1,3 +1,4 @@
-export { createProject } from "../main/createProject"
-export { getConfigAction } from "./getConfigAction"
-export { createComponentAction } from "./createComponentAction"
+export * from "../main/createProject"
+export * from "./getConfigAction"
+export * from "./createComponentAction"
+export * from "./setOriginAction"

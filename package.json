@@ -17,6 +17,7 @@
     "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
   },
   "dependencies": {
+    "chalk": "^5.2.0",
     "commander": "^9.4.1",
     "download-git-repo": "^3.0.2",
     "ejs": "^3.1.8",

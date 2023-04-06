@@ -19,10 +19,10 @@
     "outDir": "cli/bin",
     "rootDir": "lib",
     "resolveJsonModule": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["lib/*"]
-    }
+    // "baseUrl": ".",
+    // "paths": {
+    //   "~/*": ["lib/*"]
+    // }
   },
   "include": ["lib/**/*"],
   "ts-node": {

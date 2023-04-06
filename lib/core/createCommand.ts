@@ -7,6 +7,7 @@ import {
   createComponentAction,
 } from "./action";
 import config from "../config/repo-config.json";
+import { setOrigin } from './main/setOrigin';
 
 export const createCommand = () => {
   program
@@ -21,6 +22,11 @@ export const createCommand = () => {
       const { dest = config.componentDest } = program.opts<Opts>();
       createComponent(frame, cpnName, dest)
     });
+
+  program
+    .command("origin")
+    .description("设置npm镜像源")
+    .action(setOrigin);
     
   program
     .command("config")
