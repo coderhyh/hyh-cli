@@ -10,7 +10,7 @@ export const setOrigin = async () => {
   const res: IOriginType = await prompt({
     type: "list",
     name: "instruct",
-    message: "选择一个框架",
+    message: "请选择",
     choices: [
       {name: '查看当前源', value: 'getCurrentOrigin'},
       {name: '查看所有源', value: 'getAllOrigin'},
