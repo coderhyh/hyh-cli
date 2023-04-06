@@ -2,6 +2,7 @@ import ora from 'ora'
 import fs from 'fs';
 import path from 'path';
 import { renderFile } from "ejs";
+const figlet = require("figlet");
 
 type Fn = (...args: any) => any;
 const s = process.platform === 'win32' ? '\\' : '/'
@@ -64,3 +65,24 @@ export const fnLoadingByOra = async (fn: Fn, message: string, succeedMsg: string
   spinner.succeed(succeedMsg);
   return result;
 };
+
+export const figletLog = (log: string) => {
+  figlet(
+    log,
+    {
+      font: "Ghost",
+      horizontalLayout: "default",
+      verticalLayout: "default",
+      width: 80,
+      whitespaceBreak: true,
+    },
+    function (err: any, data: string) {
+      if (err) {
+        console.log("Something went wrong...");
+        console.dir(err);
+        return;
+      }
+      console.log(data);
+    }
+  );
+}

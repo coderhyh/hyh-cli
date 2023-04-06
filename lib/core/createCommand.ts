@@ -1,7 +1,7 @@
 import { program } from "commander";
 
+import { createProject } from './main/createProject';
 import {
-  createProjectAction,
   getConfigAction,
   addComponentAction,
 } from "./action";
@@ -12,7 +12,7 @@ export const createCommand = () => {
   program
     .command("create <projectName>")
     .description("创建一个项目 vue | react")
-    .action(createProjectAction);
+    .action(createProject);
 
   program
     .command("addcpn <cpnName>")

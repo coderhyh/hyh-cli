@@ -14,13 +14,13 @@
     "watch-build": "npm run watch-tsc && npm run watch-extra",
     "watch-tsc": "tsc --watch",
     "watch-extra": "cpx \"lib/**/*.{json,ejs}\" cli/bin/ --watch",
-    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\"",
-    "publish": "npm login && npm publish ./cli"
+    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
   },
   "dependencies": {
     "commander": "^9.4.1",
     "download-git-repo": "^3.0.2",
     "ejs": "^3.1.8",
+    "figlet": "^1.5.2",
     "inquirer": "^8.0.0",
     "ora": "^5.0.0"
   },

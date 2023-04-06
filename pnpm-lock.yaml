@@ -10,6 +10,9 @@ dependencies:
   ejs:
     specifier: ^3.1.8
     version: 3.1.8
+  figlet:
+    specifier: ^1.5.2
+    version: 1.5.2
   inquirer:
     specifier: ^8.0.0
     version: 8.2.5
@@ -766,6 +769,11 @@ packages:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
     dependencies:
       pend: 1.2.0
+    dev: false
+
+  /figlet@1.5.2:
+    resolution: {integrity: sha512-WOn21V8AhyE1QqVfPIVxe3tupJacq1xGkPTB4iagT6o+P2cAgEOOwIxMftr4+ZCTI6d551ij9j61DFr0nsP2uQ==}
+    engines: {node: '>= 0.4.0'}
     dev: false
 
   /figures@3.2.0:
