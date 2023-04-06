@@ -2,8 +2,7 @@
   "origin": {
     "vue": "direct:https://gitee.com/LoveCodingHyh/coderhyh-template.git",
     "react": "",
-    "node": ""
+    "node": "direct:https://gitee.com/LoveCodingHyh/node-template.git"
   },
-  "componentDest": "./src/components/",
-  "pageDest": "./src/views/"
+  "componentDest": "./src/components/"
 }

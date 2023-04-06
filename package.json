@@ -7,14 +7,12 @@
     "hyh": "./lib/index.ts"
   },
   "scripts": {
-    "dev": "ts-node .dev.ts",
     "build": "npm run build-tsc && npm run build-extra && ts-node .prod.ts",
     "build-tsc": "tsc",
     "build-extra": "cpx \"lib/**/*.ejs\" cli/bin/ && cpx \"lib/copyFiles/*\" cli/",
     "watch-build": "npm run watch-tsc && npm run watch-extra",
     "watch-tsc": "tsc --watch",
-    "watch-extra": "cpx \"lib/**/*.{json,ejs}\" cli/bin/ --watch",
-    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
+    "watch-extra": "cpx \"lib/**/*.{json,ejs}\" cli/bin/ --watch"
   },
   "dependencies": {
     "chalk": "^5.2.0",

@@ -12,7 +12,7 @@ export const createProject = async (projectName: string) => {
     choices: ["vue", "react", "node"],
   });
 
-  const blackList = ["react", "node"]
+  const blackList = ["react"]
   if (blackList.includes(res.frame)) return console.log('暂无');
 
   const flag = await createProjectAction(res, projectName)
