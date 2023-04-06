@@ -12,7 +12,7 @@ import { setOrigin } from './main/setOrigin';
 export const createCommand = () => {
   program
     .command("create <projectName>")
-    .description("创建一个项目 vue | react")
+    .description("创建一个项目")
     .action(createProject);
 
   program

@@ -9,13 +9,13 @@ type originK = keyof typeof registries;
 class Origin {
   getCurrentOrigin() {
     const reg = getOrigin();
-    const res = Object.keys(registries).find((k) => {
+    const originName = Object.keys(registries).find((k) => {
       if (registries[<originK>k].registry === reg.trim()) {
         return k;
       }
     });
-    if (res) {
-      console.log("当前源:", res);
+    if (originName) {
+      console.log(`当前源: ${originName} --- ${registries[<originK>originName].registry}`);
     } else {
       console.log("当前源:", reg);
     }
