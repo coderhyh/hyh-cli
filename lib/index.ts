@@ -2,7 +2,7 @@
 
 import { program } from "commander";
 
-import { helpOptions } from "./core/help";
+import { helpOptions } from "./core/helpOptions";
 import { createCommand } from "./core/createCommand";
 
 helpOptions();

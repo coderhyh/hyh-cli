@@ -7,8 +7,6 @@ import { figletLog, fnLoadingByOra } from "../../common/utils";
 import {promisify} from 'util';
 const download = promisify(require("download-git-repo"));
 
-import type { ResType } from '../type';
-
 const { prompt } = inquirer;
 
 export const createProjectAction = async (res: ResType, projectName: string) => {

@@ -24,5 +24,8 @@
       "~/*": ["lib/*"]
     }
   },
-  "include": ["lib/**/*"]
+  "include": ["lib/**/*"],
+  "ts-node": {
+    "files": true
+  }
 }

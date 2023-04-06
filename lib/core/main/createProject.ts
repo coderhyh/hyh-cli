@@ -3,8 +3,6 @@ import fs from "fs";
 
 import { createProjectAction } from "../action/createProjectAction";
 
-import type { ResType } from "../type";
-
 const { prompt } = inquirer;
 export const createProject = async (projectName: string) => {
   const res: ResType = await prompt({
