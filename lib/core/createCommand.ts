@@ -16,11 +16,19 @@ export const createCommand = () => {
     .action(createProject);
 
   program
+    .command("addpage <frame> <pageName>")
+    .description("添加一个页面; 如: hyh addpage <frame> <pageName>")
+    .action((frame: addCpnFrame, pageName: string) => {
+      const { dest = config.pageDest } = program.opts<Opts>();
+      createComponent(frame, pageName, dest, 'page')
+    });
+
+  program
     .command("addcpn <frame> <cpnName>")
-    .description("添加一个组件; 如 hyh addcpn <frame> <cpnName>")
+    .description("添加一个组件; 如: hyh addcpn <frame> <cpnName>")
     .action((frame: addCpnFrame, cpnName: string) => {
       const { dest = config.componentDest } = program.opts<Opts>();
-      createComponent(frame, cpnName, dest)
+      createComponent(frame, cpnName, dest, 'cpn')
     });
 
   program

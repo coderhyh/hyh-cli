@@ -4,5 +4,6 @@
     "react": "",
     "node": "direct:https://gitee.com/LoveCodingHyh/node-template.git"
   },
-  "componentDest": "./src/components/"
+  "componentDest": "./src/components/",
+  "pageDest": "./src/views/"
 }
