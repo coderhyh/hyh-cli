@@ -1,12 +1,12 @@
 #!/usr/bin/env ts-node
 
-import { program } from "commander";
+import { program } from 'commander'
 
-import { helpOptions } from "./core/helpOptions";
-import { createCommand } from "./core/createCommand";
+import { createCommand } from './core/createCommand'
+import { helpOptions } from './core/helpOptions'
 
-helpOptions();
+helpOptions()
 
 createCommand()
 
-program.parse(process.argv);
+program.parse(process.argv)

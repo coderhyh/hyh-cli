@@ -4,6 +4,15 @@
     "react": "",
     "node": "direct:https://gitee.com/LoveCodingHyh/node-template.git"
   },
-  "componentDest": "./src/components/",
-  "pageDest": "./src/views/"
+  "componentDest": "./src/components",
+  "pageDest": "./src/views",
+  "storeDest": "./src/store/src",
+  "typeDest": "./src/types",
+
+  "node-config-dest": "./src/router/config",
+  "node-interface-dest": "./src/interface",
+  "node-middleware-dest": "./src/middleware",
+  "node-router-dest": "./src/router/src",
+  "node-service-dest": "./src/service",
+  "node-d-dest": "./src/types"
 }

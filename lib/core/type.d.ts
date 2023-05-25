@@ -1,12 +1,12 @@
-export {};
+export {}
 declare global {
   interface Opts {
     dest: string
   }
 
   interface ResType {
-    frame: "vue" | "react" | "node"
+    frame: 'vue' | 'react' | 'node'
   }
 
-  type addCpnFrame = "vue" | "react"
+  type addCpnFrame = 'vue' | 'react'
 }
