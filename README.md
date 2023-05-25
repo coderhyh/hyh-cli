@@ -11,7 +11,10 @@ hyh addpage <frame> <pageName>
 创建一个组件; 默认路径: /src/components/
 hyh addcpn <frame> <cpnName>
 
-自定义路径 
+创建一个node模块;
+hyh addmodule <moduleName>
+
+自定义路径
 hyh addcpn <frame> <cpnName> -d <path>
 
 切换npm源
