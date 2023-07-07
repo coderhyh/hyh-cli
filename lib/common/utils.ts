@@ -34,12 +34,8 @@ export const cloneDirSync = async (clonePath: string, targetPath: string, module
   createDirSync(targetPath)
 
   if (file.isFile()) {
-    const res = await renderFile(clonePath, { moduleName, smallHumpName, bigHumpName })
     const fileName = path.basename(clonePath)
-    const _fileName = reg.test(fileName)
-      ? fileName.replace('.ejs', '').replace(/\[.*\]/g, moduleName)
-      : fileName.replace('.ejs', '')
-    write2File(`${targetPath}${s}${_fileName}`, res)
+    await cloneFile(clonePath, fileName)
     return
   }
 
@@ -48,16 +44,20 @@ export const cloneDirSync = async (clonePath: string, targetPath: string, module
     const templatePath = path.resolve(clonePath, fileName)
     const file = fs.statSync(templatePath)
     if (file.isFile()) {
-      const res = await renderFile(templatePath, { moduleName, smallHumpName, bigHumpName })
-      const _fileName = reg.test(fileName)
-        ? fileName.replace('.ejs', '').replace(/\[.*\]/g, moduleName)
-        : fileName.replace('.ejs', '')
-      write2File(`${targetPath}${s}${_fileName}`, res)
+      await cloneFile(templatePath, fileName)
     } else if (file.isDirectory()) {
       const _targetPath = `${targetPath}${s}${fileName}`
       createDirSync(_targetPath)
       cloneDirSync(templatePath, _targetPath, moduleName)
     }
+  }
+
+  async function cloneFile(templatePath: string, fileName: string) {
+    const res = await renderFile(templatePath, { moduleName, smallHumpName, bigHumpName })
+    let _fileName = fileName.replace('.ejs', '')
+    if (reg.test(fileName)) _fileName = fileName.replace(/\[.*\]/g, moduleName)
+
+    write2File(`${targetPath}${s}${_fileName}`, res)
   }
 }
 
