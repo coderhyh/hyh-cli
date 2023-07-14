@@ -1,7 +1,9 @@
+import chalk from 'chalk'
 import { renderFile } from 'ejs'
 import fs from 'fs'
 import ora from 'ora'
 import path from 'path'
+
 const figlet = require('figlet')
 
 type Fn = (...args: any) => any
@@ -17,6 +19,14 @@ export function promisify<T extends Function>(fn: T): Fn {
       fn.apply(this, args)
     })
   }
+}
+
+const chalkLog = (color: ForegroundColor, ...args: string[]) => console.log(chalk[color](...args))
+
+export const hyh_log = {
+  red: (...args: string[]) => chalkLog('red', ...args),
+  green: (...args: string[]) => chalkLog('green', ...args),
+  blue: (...args: string[]) => chalkLog('black', ...args)
 }
 
 export const createDirSync = (targetPath: string) => {
@@ -55,14 +65,13 @@ export const cloneDirSync = async (clonePath: string, targetPath: string, module
   async function cloneFile(templatePath: string, fileName: string) {
     const res = await renderFile(templatePath, { moduleName, smallHumpName, bigHumpName })
     let _fileName = fileName.replace('.ejs', '')
-    if (reg.test(fileName)) _fileName = fileName.replace(/\[.*\]/g, moduleName)
-
+    if (reg.test(_fileName)) _fileName = _fileName.replace(/\[.*\]/g, moduleName)
     write2File(`${targetPath}${s}${_fileName}`, res)
   }
 }
 
 export const write2File = (targetPath: string, content: string) => {
-  if (fs.existsSync(targetPath)) console.error(`${targetPath} 已存在`)
+  if (fs.existsSync(targetPath)) hyh_log.red(`${path.basename(targetPath)} 已存在`)
   else fs.writeFileSync(targetPath, content)
 }
 

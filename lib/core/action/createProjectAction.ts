@@ -9,7 +9,7 @@ const download = promisify(require('download-git-repo'))
 
 const { prompt } = inquirer
 
-export const createProjectAction = async (res: ResType, projectName: string) => {
+export const createProjectAction = async (res: ICreateProjectType, projectName: string) => {
   if (fs.existsSync(projectName)) {
     const res = await prompt({
       type: 'confirm',

@@ -5,7 +5,7 @@ import { createProjectAction } from '../action/createProjectAction'
 
 const { prompt } = inquirer
 export const createProject = async (projectName: string) => {
-  const res: ResType = await prompt({
+  const res: ICreateProjectType = await prompt({
     type: 'list',
     name: 'frame',
     message: '选择一个框架',

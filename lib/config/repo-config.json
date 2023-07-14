@@ -2,17 +2,32 @@
   "origin": {
     "vue": "direct:https://gitee.com/LoveCodingHyh/coderhyh-template.git",
     "react": "",
-    "node": "direct:https://gitee.com/LoveCodingHyh/node-template.git"
+    "node": "direct:https://gitee.com/LoveCodingHyh/node-template.git",
+    "uniapp": ""
   },
-  "componentDest": "./src/components",
-  "pageDest": "./src/views",
-  "storeDest": "./src/store/src",
-  "typeDest": "./src/types",
-
-  "node-config-dest": "./src/router/config",
-  "node-interface-dest": "./src/interface",
-  "node-middleware-dest": "./src/middleware",
-  "node-router-dest": "./src/router/src",
-  "node-service-dest": "./src/service",
-  "node-d-dest": "./src/types"
+  "vue": {
+    "component-dest": "./src/components",
+    "page-dest": "./src/views",
+    "store-dest": "./src/store/src",
+    "type-dest": "./src/types"
+  },
+  "react": {
+    "component-dest": "./src/components",
+    "page-dest": "./src/pages"
+  },
+  "uniapp": {
+    "component-dest": "./src/components",
+    "page-dest": "./src/pages",
+    "store-dest": "./src/store/src",
+    "type-dest": "./src/types",
+    "pages-json-dest": "./src/pages.json"
+  },
+  "node": {
+    "node-config-dest": "./src/router/config",
+    "node-interface-dest": "./src/interface",
+    "node-middleware-dest": "./src/middleware",
+    "node-router-dest": "./src/router/src",
+    "node-service-dest": "./src/service",
+    "node-d-dest": "./src/types"
+  }
 }

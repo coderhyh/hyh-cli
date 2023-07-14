@@ -16,13 +16,9 @@
     "moduleResolution": "node", // 模块解q析策略，ts默认用node的解析策略，即相对的方式导入
     // "jsx": "react-jsx",
     "lib": ["ESNext"],
-    "outDir": "cli/bin",
+    "outDir": "cli/lib",
     "rootDir": "lib",
-    "resolveJsonModule": true,
-    // "baseUrl": ".",
-    // "paths": {
-    //   "~/*": ["lib/*"]
-    // }
+    "resolveJsonModule": true
   },
   "include": ["lib/**/*"],
   "ts-node": {

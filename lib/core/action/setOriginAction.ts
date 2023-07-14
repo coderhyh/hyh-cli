@@ -2,6 +2,7 @@ import { execSync } from 'child_process'
 import { prompt } from 'inquirer'
 
 import { commandExec } from '../../common/terminal'
+import { hyh_log } from '../../common/utils'
 import registries from '../../config/registries.json'
 
 const getOrigin = () => execSync('npm get registry', { encoding: 'utf-8' })
@@ -15,9 +16,9 @@ class Origin {
       }
     })
     if (originName) {
-      console.log(`当前源: ${originName} --- ${registries[<originK>originName].registry}`)
+      hyh_log.blue(`当前源: ${originName} --- ${registries[<originK>originName].registry}`)
     } else {
-      console.log('当前源:', reg)
+      hyh_log.blue('当前源:', reg)
     }
   }
 
@@ -52,9 +53,9 @@ class Origin {
     const command = `npm config set registry ${reg}`
     try {
       await commandExec(command, {})
-      console.log('切换成功')
+      hyh_log.green('切换成功')
     } catch (error) {
-      console.log('切换失败', error)
+      hyh_log.red('切换失败', error)
     }
   }
 }
