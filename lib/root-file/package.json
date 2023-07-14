@@ -1,6 +1,6 @@
 {
   "name": "hyh-cli",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "a cli",
   "main": "./lib/index.js",
   "bin": {

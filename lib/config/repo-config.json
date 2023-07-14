@@ -3,7 +3,7 @@
     "vue": "direct:https://gitee.com/LoveCodingHyh/coderhyh-template.git",
     "react": "",
     "node": "direct:https://gitee.com/LoveCodingHyh/node-template.git",
-    "uniapp": ""
+    "uniapp": "direct:https://gitee.com/LoveCodingHyh/uniapp-template.git"
   },
   "vue": {
     "component-dest": "./src/components",
