@@ -9,7 +9,7 @@ export const createProject = async (projectName: string) => {
     type: 'list',
     name: 'frame',
     message: '选择一个框架',
-    choices: ['vue', 'react', 'node']
+    choices: ['vue', 'react', 'uniapp', 'node']
   })
 
   const blackList = ['react']
