@@ -1,6 +1,6 @@
 {
   "name": "hyh-cli",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "a cli",
   "main": "./lib/index.js",
   "bin": {
@@ -9,15 +9,15 @@
   "scripts": {
     "postinstall": "node postinstall.js"
   },
-  "homepage": "https://github.com/LoveCodingHyh/hyh",
+  "homepage": "https://github.com/coderhyh/hyh-cli",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LoveCodingHyh/hyh"
+    "url": "https://github.com/coderhyh/hyh-cli"
   },
   "author": {
     "name": "coderhyh",
     "email": "772567615@qq.com",
-    "url": "https://coderhyh.top"
+    "url": "https://blog.coderhyh.cn"
   },
   "keywords": [
     "coderhyh",
