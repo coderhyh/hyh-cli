@@ -1,9 +1,8 @@
 import fs from 'fs'
-import inquirer from 'inquirer'
+import { prompt } from 'inquirer'
 
 import { createProjectAction } from '../action/createProjectAction'
 
-const { prompt } = inquirer
 export const createProject = async (projectName: string) => {
   const res: ICreateProjectType = await prompt({
     type: 'list',
