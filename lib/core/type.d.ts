@@ -5,7 +5,7 @@ declare global {
   }
 
   interface ICreateProjectType {
-    frame: 'vue' | 'react' | 'node' | 'uniapp'
+    frame: 'vue' | 'react' | 'node' | 'uniapp' | 'vue+nest'
   }
 
   type addCpnFrame = 'vue' | 'react' | 'uniapp'
